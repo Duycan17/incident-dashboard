@@ -1,0 +1,32 @@
+[
+  {
+    "id": "6898bd4318acce5a7835f4ab",
+    "verdict": "correct",
+    "label": "NOT",
+    "confidence": 1,
+    "predicted_at": "2025-08-10T15:39:47.346132Z",
+    "source": "kafka_raw_review",
+    "timestamp": "2025-08-11T12:11:11.791Z",
+    "confusion": "TN"
+  },
+  {
+    "id": "6898bd4318acce5a7835f4aa",
+    "verdict": "correct",
+    "label": "INCIDENT",
+    "confidence": 0.999,
+    "predicted_at": "2025-08-10T15:39:47.269173Z",
+    "source": "kafka_raw_review",
+    "timestamp": "2025-08-11T12:12:33.777Z",
+    "confusion": "TP"
+  },
+  {
+    "id": "6898bd4318acce5a7835f4a9",
+    "verdict": "correct",
+    "label": "INCIDENT",
+    "confidence": 0.9998,
+    "predicted_at": "2025-08-10T15:39:47.188742Z",
+    "source": "kafka_raw_review",
+    "timestamp": "2025-08-11T12:12:42.319Z",
+    "confusion": "TP"
+  }
+]

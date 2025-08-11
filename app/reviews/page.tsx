@@ -18,6 +18,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { ScrollArea } from "@/components/ui/scroll-area"
+import Link from "next/link"
 
 type Review = {
   id: string
@@ -325,6 +326,9 @@ export default function ReviewsPage() {
                   <RefreshCw className={`h-4 w-4 mr-2 ${isLoading ? "animate-spin" : ""}`} />
                   {isLoading ? "Refreshing..." : "Refresh"}
                 </Button>
+                <Button asChild>
+                  <Link href="/reviews/results">View Results</Link>
+                </Button>
               </div>
             </div>
           </CardHeader>
@@ -429,7 +433,12 @@ export default function ReviewsPage() {
                         <div className="flex flex-wrap items-center gap-2">
                           <Button
                             size="sm"
-                            variant={verdict === "correct" ? "default" : "secondary"}
+                            variant="secondary"
+                            className={
+                              verdict === "correct"
+                                ? "bg-emerald-600 hover:bg-emerald-700 text-white"
+                                : "bg-emerald-100 hover:bg-emerald-200 text-emerald-700 border border-emerald-200"
+                            }
                             onClick={() => markVerification(r.id, "correct")}
                             aria-label={`Mark review ${r.id} label as correct`}
                           >
@@ -438,7 +447,12 @@ export default function ReviewsPage() {
                           </Button>
                           <Button
                             size="sm"
-                            variant={verdict === "incorrect" ? "destructive" : "secondary"}
+                            variant="secondary"
+                            className={
+                              verdict === "incorrect"
+                                ? "bg-rose-600 hover:bg-rose-700 text-white"
+                                : "bg-rose-100 hover:bg-rose-200 text-rose-700 border border-rose-200"
+                            }
                             onClick={() => markVerification(r.id, "incorrect")}
                             aria-label={`Mark review ${r.id} label as incorrect`}
                           >
