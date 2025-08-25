@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server"
+import { API_CONFIG } from "@/lib/config"
 
 export async function GET(req: Request) {
-  const upstreamBase = "http://128.199.96.56:8005/reviews"
+  const upstreamBase = API_CONFIG.UPSTREAM_SERVICES.REVIEWS
   try {
     const url = new URL(req.url)
     const page = url.searchParams.get("page")
@@ -11,7 +12,7 @@ export async function GET(req: Request) {
     if (page) {
       upstreamUrl.searchParams.set("page", page)
       // Apply default page size only when paginating
-      upstreamUrl.searchParams.set("page_size", "5")
+      upstreamUrl.searchParams.set("page_size", API_CONFIG.SETTINGS.DEFAULT_PAGE_SIZE.toString())
     }
     if (label) upstreamUrl.searchParams.set("label", label)
 

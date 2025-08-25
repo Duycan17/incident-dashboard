@@ -23,7 +23,7 @@ export default function ResultsPage() {
     setIsLoading(true)
     setError(null)
     try {
-      const res = await fetch("/api/reviews/stats", { cache: "no-store" })
+      const res = await fetch("/apiv2/reviews/stats", { cache: "no-store" })
       if (!res.ok) throw new Error(`HTTP ${res.status}`)
       const data: StatsResponse = await res.json()
       setStats(data)

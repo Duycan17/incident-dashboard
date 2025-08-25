@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  incident-dashboard:
+    build: .
+    ports:
+      - "3002:3000"
+    environment:
+      - NODE_ENV=production
+      - DATA_VOLUME_PATH=/app/data
+    volumes:
+      - incident_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  incident_data:
+    driver: local

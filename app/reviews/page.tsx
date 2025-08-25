@@ -111,7 +111,7 @@ export default function ReviewsPage() {
       const params = new URLSearchParams()
       params.set("page", String(page))
       if (labelFilter) params.set("label", labelFilter)
-      const res = await fetch(`/api/reviews?${params.toString()}` , { cache: "no-store" })
+      const res = await fetch(`/apiv2/reviews?${params.toString()}` , { cache: "no-store" })
       if (!res.ok) {
         throw new Error(`Upstream responded with ${res.status}`)
       }
@@ -156,7 +156,7 @@ export default function ReviewsPage() {
 
   const fetchChart = React.useCallback(async () => {
     try {
-      const res = await fetch(`/api/reviews`, { cache: "no-store" })
+      const res = await fetch(`/apiv2/reviews`, { cache: "no-store" })
       if (!res.ok) {
         throw new Error(`Upstream responded with ${res.status}`)
       }
@@ -253,7 +253,7 @@ export default function ReviewsPage() {
     try {
       // Find the review to send helpful metadata
       const r = items.find((rv: Review) => rv.id === id)
-      await fetch("/api/reviews/verify", {
+      await fetch("/apiv2/reviews/verify", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
@@ -340,7 +340,7 @@ export default function ReviewsPage() {
                 <AlertDescription>
                   {error}. Showing sample data instead. If you{"'"}re running over HTTPS, the upstream HTTP endpoint may
                   be blocked by the browser. In production, proxy this endpoint through a secure Route Handler (as
-                  implemented here at /api/reviews) or enable HTTPS on the upstream server.
+                  implemented here at /apiv2/reviews) or enable HTTPS on the upstream server.
                 </AlertDescription>
               </Alert>
             )}

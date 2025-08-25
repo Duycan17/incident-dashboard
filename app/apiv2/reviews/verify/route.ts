@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
 import { promises as fs } from "fs"
 import path from "path"
+import { API_CONFIG, getResultsFilePath } from "@/lib/config"
 
 type Verdict = "correct" | "incorrect"
 type Confusion = "TP" | "FP" | "TN" | "FN" | null
